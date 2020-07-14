@@ -3,7 +3,6 @@ import "clientjs";
 import { toastService } from "./toast";
 import i18next from "i18next";
 import { config } from "./../config";
-const aesjs = require("aes-js");
 
 const generic_message = () => {
   return i18next.t("share.error.network_access_error");
@@ -56,18 +55,6 @@ const handleError = (error) => {
   }
 };
 
-const stringtoUtf8Byte = (value) => {
-  return aesjs.utils.utf8.toBytes(value);
-};
-
-const stringtoHex = (value) => {
-  return Buffer.from(value, "hex");
-};
-
-const getOtpTimer = () => {
-  return Date.now() + 120000;
-};
-
 const getActivationSmsTimer = () => {
   return Date.now() + 60000;
 };
@@ -82,8 +69,5 @@ export const utilService = {
   getRandomDigit,
   isEmpty,
   handleError,
-  stringtoUtf8Byte,
-  stringtoHex,
-  getOtpTimer,
   getActivationSmsTimer,
 };
